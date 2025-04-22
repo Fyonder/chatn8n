@@ -3,11 +3,21 @@ import './Message.css';
 
 const Message = ({ text, isUser, timestamp, status }) => {
   return (
-    <div className={`message ${isUser ? 'user' : 'bot'} ${status || ''}`}>
-      <div className="message-content">{text}</div>
-      <div className="message-time">
-        {new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-        {status === 'failed' && <span className="error-icon"> ❗</span>}
+    <div className={`message ${isUser ? 'user' : 'bot'}`}>
+      <div className="message-content">
+        {
+          !isUser ? (
+            <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit' }}>
+              {text}
+            </pre>
+          ) : (
+            <span>{text}</span>
+          )
+        }
+      </div>
+      <div className="message-meta">
+        <span className="timestamp">{new Date(timestamp).toLocaleTimeString()}</span>
+        {isUser && <span className={`status ${status}`}>{status}</span>}
       </div>
     </div>
   );
