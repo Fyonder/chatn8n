@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuração global do axios
 const api = axios.create({
-  baseURL: 'https://filclay.app.n8n.cloud/webhook/62fd62cc-495f-4cd7-a8b1-22e0c32863e2',
+  baseURL: 'https://filclay.app.n8n.cloud/webhook-test/62fd62cc-495f-4cd7-a8b1-22e0c32863e2',
   timeout: 20000, // 20 segundos
   headers: {
     'Content-Type': 'application/json'
